@@ -1,9 +1,11 @@
 #include <LiquidCrystal_I2C.h>
 
+// PINES DEL BUZZER Y PIN PULSADOR PARA CANCION
 int pinBuzzer = 11;
 int pinCancion = 9;
-int Dosost= 10;
 
+
+//NOTAS MUSICALES
 int Do = 2;
 int Re = 3;
 int Mi = 4;
@@ -11,17 +13,22 @@ int Fa = 5;
 int Sol = 6;
 int La = 7;
 int Si = 8;
+int Dosost= 10;
 
 bool bandera=true;
 
 LiquidCrystal_I2C lcd(0x27,16,2);
 void cancion(){
-  lcd.clear();
-  lcd.print("SKY FULL STARS ");
+ /* AQUI ESTAN LAS NOTAS MUSICALES
+ DE LA CANCION POR DEFECTO IMPLEMENTADA
+ EN ESTE CASO SKY FULL STARS DE COLDPLAY*/
+
+  lcd.clear(); //se limpia la lcd
+  lcd.print("SKY FULL STARS "); // se muestra el titulo de la cancion
   lcd.setCursor(3,1);
   lcd.print("COLDPLAY");
-  tone(pinBuzzer, 370);
-  delay(374);
+  tone(pinBuzzer, 370);// sonido en el buzzer por 370 ms
+  delay(374); // un delay de 374 ms
   noTone(pinBuzzer);
 
   tone(pinBuzzer, 277);
@@ -73,11 +80,11 @@ void cancion(){
 void setup() {
   // put your setup code here, to run once:
   for (int i = 2; i <=10 ; i++) {
-    pinMode(i, INPUT_PULLUP);
+    pinMode(i, INPUT_PULLUP); // se utiliza la configuracion pull up interna del arduino
   }
   //pinMode(pinLed, OUTPUT);
-  pinMode(pinBuzzer, OUTPUT);
-  lcd.init();
+  pinMode(pinBuzzer, OUTPUT);// se define como salida al pin del buzzer
+  lcd.init();// se inicializa la lcd
   lcd.backlight();
   lcd.print("PIANO DIGITAL");
   //lcd.clear();
@@ -86,58 +93,57 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  while (digitalRead(Do) == LOW) {
-    tone(pinBuzzer, 523, 100);
-    //delay(1000);
-    //digitalWrite(pinLed, HIGH);
+  while (digitalRead(Do) == LOW) { // BOTON DE LA NOTA DO
+    tone(pinBuzzer, 523, 100); // LA NOTA DO TRABAJA A UNA FREC DE 523 HZ, CON T DURACION DE 100MS
+
     lcd.clear();
-    lcd.print("Nota Musical: Do");
+    lcd.print("Nota Musical: Do"); // muestra por pantalla la nota musical presionada
   }
-  while (digitalRead(Re) == LOW) {
-    tone(pinBuzzer, 588, 100);
-    //delay(1000);
-    //digitalWrite(pinLed, HIGH);
+  while (digitalRead(Re) == LOW) { // BOTON DE LA NOTA RE
+    tone(pinBuzzer, 588, 100); // la nota Re trabaja a una frec de 588 Hz con un t duracion de 100ms
+   
     lcd.clear();
     lcd.print("Nota Musical: Re");
   }
-  while (digitalRead(Mi) == LOW) {
-    tone(pinBuzzer, 659, 100);
-    //digitalWrite(pinLed, HIGH);
+  while (digitalRead(Mi) == LOW) { // BOTON DE LA NOTA MI
+    tone(pinBuzzer, 659, 100);// la nota Mi trabaja a una frec de 659 Hz con un t duracion de 100ms
+    
     lcd.clear();
     lcd.print("Nota Musical: Mi");    
   }
-  while (digitalRead(Fa) == LOW) {
-    tone(pinBuzzer, 698, 100);
-    //digitalWrite(pinLed, HIGH);
+  while (digitalRead(Fa) == LOW) { // BOTON DE LA NOTA FA
+    tone(pinBuzzer, 698, 100); // la nota Fa trabaja a una frec de 698 Hz con un t duracion de 100ms
+    
     lcd.clear();
     lcd.print("Nota Musical: Fa");
   }
-  while (digitalRead(Sol) == LOW) {
-    tone(pinBuzzer, 784, 100);
-    //digitalWrite(pinLed, HIGH);
+  while (digitalRead(Sol) == LOW) { // BOTON DE LA NOTA SOL
+    tone(pinBuzzer, 784, 100);// la nota Sol trabaja a una frec de 784 Hz con un t duracion de 100ms
+    
     lcd.clear();
     lcd.print("Nota Musical:Sol");
   }
-  while (digitalRead(La) == LOW) {
-    tone(pinBuzzer, 880, 100);
-    //digitalWrite(pinLed, HIGH);
+  while (digitalRead(La) == LOW) { // BOTON DE LA NOTA LA
+    tone(pinBuzzer, 880, 100);// la nota La trabaja a una frec de 880 Hz con un t duracion de 100ms
+    
     lcd.clear();
     lcd.print("Nota Musical: La");
   }
-  while (digitalRead(Si) == LOW) {
-    tone(pinBuzzer, 988, 100);
-    //digitalWrite(pinLed, HIGH);
+  while (digitalRead(Si) == LOW) { // BOTON DE LA NOTA SI
+    tone(pinBuzzer, 988, 100); // la nota Si trabaja a una frec de 988 Hz con un t duracion de 100ms
+    
     lcd.clear();
-    lcd.print("Nota Musical: La");
+    lcd.print("Nota Musical: Si");
   }
   
-  if(digitalRead(pinCancion)==LOW){
+  if(digitalRead(pinCancion)==LOW){ // boton para activar la cancion
     cancion();
   }
  
-  while (digitalRead(Dosost) == LOW) {
-    tone(pinBuzzer, 262, 100);
-    //digitalWrite(pinLed, HIGH);
+  while (digitalRead(Dosost) == LOW) {// BOTON DE LA NOTA DO SOSTENIDO
+    tone(pinBuzzer, 262, 100); // la nota Do sostenido trabaja a una frec de 588 Hz
+    // con un t duracion de 100ms
+    
     lcd.clear();
     lcd.print("Nota Musical: Do");
     lcd.setCursor(4,1);
@@ -148,3 +154,4 @@ void loop() {
 
   
 }
+
