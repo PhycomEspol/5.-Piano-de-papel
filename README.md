@@ -34,11 +34,12 @@ El usuario tiene que presionar los pulsadores acordes a la nota musical que dese
 
 •	Agregar más notas musicales, para que se pueden tocar una mayor variedad cantidad de canciones.
 
-•	Mediante un teclado, el usuario eliga que canción le gustaria que el piano entone automaticamente por defecto.
+•	Mediante un teclado, el usuario elija que canción le gustaria que el piano entone automáticamente por defecto.
 
 •	Agregar un buzzer pasivo para cada nota musical, de tal manera que al presionar distintas musicales al mismo tiempo, el sonido que emita el piano será rápidamente de ambas notas. Dado que, si se presiona muchas notas musciales al mismo tiempo se distorsiona el sonido del buzzer y el atmega 328p no sabrá que nota mismo sonar.
 
 # Conclusiones
+
 •	Se implementó un piano por medio de componentes electrónicos con la finalidad que muchas personas puedan entonar las notas musicales de su preferencia acorde a sus canciones favoritas, y a su vez funciona como forma de distracción para la gente.
 
 •	Se simuló por medio de una plataforma el funcionamiento de un piano electrónico.
