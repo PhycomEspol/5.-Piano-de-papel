@@ -1,5 +1,8 @@
 # 5.-Piano-de-papel
 
+# Link de simulación
+
+https://wokwi.com/projects/341989859607446099
 
 # Objetivos
 •	Crear un piano utilizando componentes electrónicos con la finalidad que sea usado por el público general.
